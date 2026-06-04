@@ -1,15 +1,12 @@
 {
-  "name": "play",
+  "name": "workday-cicd-testing",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {},
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
+  "scripts": {
+    "test": "playwright test",
+    "smoke": "playwright test tests/smoke",
+    "regression": "playwright test tests/regression"
+  },
   "devDependencies": {
-    "@playwright/test": "^1.60.0",
-    "@types/node": "^25.9.1"
+    "@playwright/test": "^1.54.0"
   }
 }
