@@ -91,7 +91,7 @@ jobs:
         with:
           name: playwright-report
           path: playwright-report/
-          retention-days: 60
+          retention-days: 30
 
   approval:
     name: QA Approval
