@@ -48,13 +48,13 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Verify Build
-        run: echo "Build Validation Successful"
+        run: echo "Build Validation Successfull"
 
   workday-tests:
     name: Workday Automated Tests
     needs: build
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 30
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
