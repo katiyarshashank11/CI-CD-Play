@@ -54,7 +54,7 @@ jobs:
     name: Workday Automated Tests
     needs: build
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 30
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
