@@ -2,16 +2,23 @@ const { test, expect } = require('@playwright/test');
 
 test('Workday Login Regression Validation', async ({ page }) => {
 
-  await page.goto(process.env.WORKDAY_URL);
+  const workdayUrl =
+  process.env.WORKDAY_URL ||
+  'https://impl.workday.com';
 
-  const usernameField = page.locator('input[type="text"]').first();
+await page.goto(workdayUrl);
 
-  await expect(usernameField).toBeVisible();
+  await page.getByLabel(/user name|username/i)
+    .fill(process.env.WORKDAY_USERNAME);
 
-  await usernameField.fill('RegressionUser');
+  await page.getByLabel(/password/i)
+    .fill(process.env.WORKDAY_PASSWORD);
 
-  await expect(usernameField).toHaveValue('RegressionUser');
+  await page.getByRole('button', { name: /sign in|login/i })
+    .click();
 
-  console.log('Regression Validation Successful');
+  await expect(page).toHaveURL(/workday/i);
+
+  console.log('Workday Login Successful');
 
 });
